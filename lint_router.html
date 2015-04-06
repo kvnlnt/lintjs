@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Router.kjs</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- controllers -->
+    <script type="text/javascript" src="lint_router.js"></script>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <ul>
+            <li><a href="#/one">page one</a></li>
+            <li><a href="#/two">page two</a></li>
+            <li><a href="#/three/1">page three</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        var fn1 = function(){   console.log('fn1'); };
+        var fn2 = function(){   console.log('fn2'); };
+        var fn3 = function(params){ console.log('fn3', params); };
+
+        var router = LintRouter.create({ watchFreq:2000 })
+            .addRoute('/one', fn1)
+            .addRoute('/two', fn2)
+            .addRoute('/three/<int:id>', fn3)
+            .watch();
+
+    </script>
+
+</body>
+
+</html>
